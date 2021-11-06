@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from splitbill.models.usergroup import UserGroup
+
+admin.site.register(UserGroup)
