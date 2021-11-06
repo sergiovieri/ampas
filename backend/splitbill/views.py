@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import generics, viewsets
+from rest_framework import generics, permissions, viewsets
 
 from splitbill.models.usergroup import UserGroup
 from splitbill.serializers.usergroup import UserGroupSerializer
@@ -14,3 +14,4 @@ class UserGroupViewSet(viewsets.ModelViewSet):
 
     queryset = UserGroup.objects.all()
     serializer_class = UserGroupSerializer
+    permission_classes = [permissions.IsAuthenticated]
