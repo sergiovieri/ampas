@@ -7,6 +7,7 @@ name = "pypi"
 djangorestframework = "*"
 djangorestframework-oauth = "*"
 pytz = "*"
+django-money = "*"
 
 [dev-packages]
 black = "*"

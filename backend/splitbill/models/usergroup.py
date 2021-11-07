@@ -1,7 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
 class UserGroup(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     last_activity = models.DateTimeField(auto_now=True)
