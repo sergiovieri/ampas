@@ -3,8 +3,10 @@ from rest_framework import generics, permissions, viewsets
 
 from splitbill.models.transaction import Transaction
 from splitbill.models.usergroup import UserGroup
+from splitbill.models.userbalance import UserBalance
 from splitbill.serializers.transaction import TransactionSerializer
 from splitbill.serializers.usergroup import UserGroupSerializer
+from splitbill.serializers.userbalance import UserBalanceSerializer
 
 
 class UserGroupViewSet(viewsets.ModelViewSet):
@@ -28,3 +30,13 @@ class TransactionViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(owner_id=self.request.user.id)
+
+
+class UserBalanceViewSet(viewsets.ModelViewSet):
+    """
+    List all user balances, or create a new balance.
+    """
+
+    queryset = UserBalance.objects.all()
+    serializer_class = UserBalanceSerializer
+    permission_classes = [permissions.IsAuthenticated]
